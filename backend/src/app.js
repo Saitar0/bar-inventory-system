@@ -4,6 +4,7 @@ const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productRoutes');
 const saleRoutes = require('./routes/saleRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
+const { apiLimiter, authLimiter } = require('./middlewares/rateLimiter');
 
 function createApp() {
   const app = express();
@@ -13,7 +14,8 @@ function createApp() {
 
   app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
-  app.use('/api/auth', authRoutes);
+  app.use('/api', apiLimiter);
+  app.use('/api/auth', authLimiter, authRoutes);
   app.use('/api/products', productRoutes);
   app.use('/api/sales', saleRoutes);
   app.use('/api/dashboard', dashboardRoutes);
