@@ -3,9 +3,7 @@
   "services": {
     "backend": {
       "root": "backend",
-      "framework": "express",
-      "runtime": "nodejs20.x",
-      "buildCommand": "npm install"
+      "framework": "express"
     },
     "frontend": {
       "root": "frontend",
