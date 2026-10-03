@@ -5,8 +5,7 @@
       "root": "backend",
       "framework": "express",
       "runtime": "nodejs20.x",
-      "buildCommand": "npm install",
-      "startCommand": "node src/server.js"
+      "buildCommand": "npm install"
     },
     "frontend": {
       "root": "frontend",
